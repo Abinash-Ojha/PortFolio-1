@@ -1,0 +1,257 @@
+/* Base Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.portfolio-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    gap: 3.5rem;
+    height: 15vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.nav-list li {
+    list-style: none;
+}
+
+.nav-list a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #fff;
+    position: relative;
+}
+
+.left-container,
+.right-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.left-container {
+    background-color: #262525;
+    width: 70%;
+    padding-left: 3rem;
+}
+
+.right-container {
+    background: linear-gradient(-45deg, #3877f3, #262525 70%);
+    width: 30%;
+}
+
+.icons {
+    color: #bbb;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: baseline;
+    gap: 4rem;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+
+.icons a {
+    color: #5db9ee;
+    text-decoration: none;
+}
+
+.icons i {
+    transition: transform 0.3s ease;
+}
+
+.icons i:hover {
+    transform: scale(2);
+}
+
+.content {
+    margin-left: 4rem;
+}
+
+.content .intro {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.content .intro span {
+    color: #5db9ee;
+}
+
+.content h1 {
+    font-size: 4rem;
+    color: #5db9ee;
+    animation: slideIn 2s ease-out;
+}
+
+.content .detail {
+    font-size: 1.1rem;
+    color: #fff;
+    max-width: 38rem;
+    margin: 1.1rem 0 3rem 0;
+    line-height: 1.8rem;
+}
+
+.btn-container button {
+    border: .1rem solid #5db9ee;
+    font-size: 1.1rem;
+    padding: .8rem 1.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+button:nth-child(1) {
+    background-color: #287dae;
+    color: #262525;
+}
+
+button:nth-child(2) {
+    background: transparent;
+    color: #287dae;
+    margin-left: 2rem;
+}
+
+button:nth-child(1):hover {
+    background-color: transparent;
+    color: #5db9ee;
+}
+
+button:nth-child(2):hover {
+    background-color: #287dae;
+    color: #262525;
+}
+
+.icons .fa-brands:hover {
+    cursor: pointer;
+    background: linear-gradient(#fff, rgb(101, 4, 118));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.design .circle {
+    aspect-ratio: 1;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.circle:nth-child(1) {
+    background: linear-gradient(90deg, transparent, #262525 50%);
+    width: 36rem;
+}
+
+.circle:nth-child(2) {
+    width: 30rem;
+    background-image: url(DemoImage.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: 1rem solid white;
+    box-shadow: 0 0 1rem #fff, inset 0 0 1rem #fff, 0 0 2rem #287dae, inset 0 0 2rem #287dae, 0 0 4rem #3877f3, inset 0 0 4rem #3877f3;
+}
+
+.nav-list li a::after,
+.nav-list .active::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: .1rem;
+    left: 0;
+    bottom: -0.2rem;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform .5s;
+}
+
+.nav-list li a:hover::after,
+.nav-list.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        flex-direction: column;
+    }
+    .left-container,
+    .right-container {
+        width: 100%;
+        height: auto;
+    }
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+    .content {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .content h1 {
+        font-size: 2.5rem;
+    }
+    .content .intro {
+        font-size: 1.2rem;
+    }
+    .content .detail {
+        font-size: 1rem;
+    }
+    .icons {
+        font-size: 2rem;
+        gap: 2rem;
+    }
+    .btn-container button {
+        font-size: 1rem;
+        padding: .7rem 1.2rem;
+    }
+    .circle:nth-child(1) {
+        width: 20rem;
+    }
+    .circle:nth-child(2) {
+        width: 18rem;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.icons {
+    animation: slideInFromRight 2s ease-out;
+}
